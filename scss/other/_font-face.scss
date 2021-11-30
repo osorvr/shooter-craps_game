@@ -1,0 +1,43 @@
+// =====================================================
+// Font Face Amatuer-Dirty, Amateur-Naked, Amatuer-Slash
+// =====================================================
+
+// Amateur Dirty
+@font-face {
+  font-family: "Amateur";
+  src: url("/fonts/Amateur-Dirty.eot");
+  src: url("/fonts/Amateur-Dirty.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/Amateur-Dirty.woff2") format("woff2"),
+    url("fonts/Amateur-Dirty.woff") format("woff"),
+    url("/fonts/Amateur-Dirty.ttf") format("truetype"),
+    url("/fonts/Amateur-Dirty.svg#Amateur-Dirty") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Amateur Slash
+@font-face {
+  font-family: "Amateur Slash";
+  src: url("/fonts/AmateurSlash.eot");
+  src: url("/fonts/AmateurSlash.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/AmateurSlash.woff2") format("woff2"), url("fonts/AmateurSlash.woff") format("woff"),
+    url("/fonts/AmateurSlash.ttf") format("truetype"),
+    url("/fonts/AmateurSlash.svg#AmateurSlash") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Amateur Naked
+@font-face {
+  font-family: "Amateur Naked";
+  src: url("/fonts/AmateurNaked.eot");
+  src: url("/fonts/AmateurNaked.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/AmateurNaked.woff2") format("woff2"), url("fonts/AmateurNaked.woff") format("woff"),
+    url("/fonts/AmateurNaked.ttf") format("truetype"),
+    url("/fonts/AmateurNaked.svg#AmateurNaked") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

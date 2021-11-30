@@ -1,0 +1,160 @@
+// ============================================================
+// Variables - Colors, Column Width, Buttons, Flex: Row, Column
+// Body Background,
+// ============================================================
+
+// Colors
+$color-light-black: #080808;
+$color-lighter-black: #1f1f1f;
+$color-very-light-transparent-black: #9f9f9f60;
+$color-very-light-black: #9f9f9f;
+$color-light-grey: #7c7272;
+$color-white: #ffffff;
+$color-light-red: #812b2b;
+
+// Headers
+h2 {
+  color: $color-white;
+  font-family: "Amateur Dirty";
+  font-size: 2.5rem;
+  font-weight: normal;
+  font-style: normal;
+}
+
+h3 {
+  color: $color-light-red;
+  font-family: "Amateur Naked";
+  font-size: 1.8rem;
+  font-weight: normal;
+  font-style: normal;
+}
+
+h4 {
+  color: $color-white;
+  font-family: "Amateur Naked";
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Paragraphs
+p {
+  color: $color-white;
+  font-family: "Amateur Naked";
+  font-size: 1.2rem;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.small-size-paragraph {
+  color: $color-white;
+  font-family: "Amateur Naked";
+  font-size: 0.9rem;
+  font-weight: normal;
+  font-style: normal;
+}
+// Column With 1200px
+.col {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+// Column 2 Width 1400px
+.col-2 {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+// Flex, Flex-Flow, Justify-Content, Aign-Items
+@mixin flexRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Flex, Flex-Flow, Justify-Content, Aign-Items
+@mixin flexColumn {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+// Buttons
+@mixin btnOne {
+  background-color: $color-light-red;
+  padding: 2%;
+  padding: 15px;
+  color: $color-white;
+  font-family: "Amateur Slash";
+  font-weight: normal;
+  font-style: normal;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+
+  &:hover {
+    transform: skewY(-3deg);
+  }
+}
+
+.btn-one {
+  background-color: $color-light-red;
+  padding: 2%;
+  padding: 15px;
+  color: $color-white;
+  font-family: "Amateur Slash";
+  font-weight: normal;
+  font-style: normal;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+
+  &:hover {
+    transform: skewY(-3deg);
+  }
+}
+
+@mixin btnTwo {
+  background-color: $color-white;
+  padding: 2%;
+  padding: 15px;
+  color: $color-light-black;
+  font-family: "Amateur Slash";
+  font-weight: normal;
+  font-style: normal;
+  border-radius: 5px;
+  text-decoration: none;
+
+  &:active {
+    transform: skew(10deg);
+  }
+}
+
+.btn-two {
+  background-color: $color-white;
+  padding: 2%;
+  padding: 15px;
+  color: $color-light-black;
+  font-family: "Amateur Slash";
+  font-weight: normal;
+  font-style: normal;
+  border-radius: 5px;
+  text-decoration: none;
+
+  &:active {
+    transform: skew(10deg);
+  }
+}
+
+// Body Background
+@mixin bodyBackground {
+  min-height: 100vh;
+  background-color: $color-lighter-black;
+  background-image: url(/images/BG.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Board | Shooter Game</title>
+    <!--
+        CSS Styles
+    -->
+    <link rel="stylesheet" href="/css/primary.min.css" />
+    <!-- 
+      Boxicons
+    -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+  <body class="game-body">
+    <!--
+        Loader 
+    -->
+    <div class="loader-wrapper">
+      <div class="lds-grid">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <!--
+          Header Navigation Bar
+    -->
+    <header class="game-header">
+      <nav class="game-header-nav col">
+        <div class="game-header-nav-item-1">
+          <h4 class="user"></h4>
+        </div>
+        <div class="game-header-nav-item-2">
+          <a href="/index.html">
+            <img src="/images/shooter-craps_logo.png" alt="shooter-craps_logo" />
+          </a>
+        </div>
+        <ul class="game-header-nav-item-3">
+          <li><a class="btn-two" href="/pages/howtoplay-two.html">How To Play? 🎓</a></li>
+          <li class="btn-one options-menu">
+            <span class="options-span">
+              Options
+              <i class='bx bxs-down-arrow' style='color:#ffffff' ></i>
+              <i class='bx bxs-up-arrow' style='color:#ffffff' ></i>
+            </span>
+            <ul class="options-sub-menu">
+              <li class="reset-2"><a href="/index.html">Reset Game</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!--
+          Main Content
+    -->
+    <main class="game-main-top col">
+      <!-- 
+        =====================================
+        Game Records, Game Roll, Game Betting
+        =====================================
+      -->
+      <section class="game-main-top-left">
+        <!-- 
+          Records Board
+        -->
+        <div class="game-records">
+            <div class="game-records-left">
+              <h3>Game Records</h3>
+              <p>😀 Wins: <span class="wins-records">0</span></p>
+              <p>😒 Loses: <span class="loses-records">0</span></p>
+              <p>⏮️ Last Bet: <span class="last-bet-records">0</span></p>
+            </div>
+            <div class="game-records-right">
+              <h4>🤑 Money: <span class="money-records">0</span></h4>
+            </div>
+        </div>
+        <!-- 
+          Roll Board
+        -->
+        <div class="game-roll-board">
+          <h3>Roll Board</h3>
+          <div class="game-score-board">
+            <p class="roll-win-lose-pointer">First Roll</p>
+            <p>-</p>
+            <p class="roll-match-pointer">Second Roll</p>
+          </div>
+        </div>
+        <!-- 
+          Betting Board
+        -->
+        <div class="game-betting-board">
+          <!-- Left -->
+          <div class="game-betting-board-left">
+            <h3>Betting Board</h3>
+            <div class="range-container">
+              <Input 
+              class="range" 
+              type="range" 
+              min="0" 
+              max="10000" 
+              step="10" 
+              value="150" >
+              </Input>
+              <p>💲 Cash: <span class="bet-range"></span></p>
+            </div>
+          </div>
+          <!-- Right -->
+          <div class="game-betting-board-right">
+            <p>💸 <span class="final-bet">0</span></p>
+            <button class="make-bet btn-one">Make A Bet</button>
+            <button class="bet-locked">Locked Bet</button>
+          </div>
+        </div>
+      </section>
+      <!-- 
+        =====================================
+        Dices & Roll Buttons
+        =====================================
+      -->
+      <section class="game-main-top-right">
+        <div class="dice">
+          <!--
+              Die 1
+          -->
+          <ol class="die-list-1 die-roll-1" data-roll="1">
+            <li class="die-item" data-side="1">
+              <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="2">
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="3">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="4">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="5">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="6">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </li>
+          </ol>
+          <!--
+              Die 2
+          -->
+          <ol class="die-list-2 die-roll-2" data-roll="1">
+            <li class="die-item" data-side="1">
+              <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="2">
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="3">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="4">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="5">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="6">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </li>
+          </ol>
+        </div>
+        <div>
+          <button class="free-roll">Free Roll 🎲</button>
+          <button class="btn-two" id="diceRollOne">First Roll ✊</button>
+          <button class="btn-two" id="diceRollTwo">Point Roll ✊</button>
+        </div>
+      </section>
+    </main>
+    <!-- 
+      Description Of Game 
+    -->
+    <main class="game-main-bottom col">
+      <section class="game-main-bottom-description-box">
+        <p class="game-main-bottom-description">Game Description: <br> Make A Bet To Start The Game.</p>
+      </section>
+    </main>
+    <!--
+          Footer
+    -->
+    <footer class="game-footer">
+      <p class="small-size-paragraph">&copy; All Rights Reserved. | powered by - www.oesso.org</p>
+    </footer>
+
+    <!--
+      Modals
+    -->
+    <!-- Winning Modal -->
+    <div class="winner-modal">
+      <button class="btn-two w-modal-btn">Play Again?</button>
+      <div class="modal-container">
+        <div class="modal-content">
+          <h2 class="modal-results">Shooter Wins 🥳</h2>
+        </div>
+      </div>
+    </div>
+    <!-- Loses Modal -->
+    <div class="loser-modal">
+      <button class="btn-two l-modal-btn">Play Again?</button>
+      <div class="modal-container">
+        <div class="modal-content">
+          <h2 class="modal-results">Shooter Looses 🤬</h2>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

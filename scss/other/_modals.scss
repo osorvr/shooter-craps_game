@@ -1,0 +1,45 @@
+.winner-modal {
+  display: none;
+}
+
+.loser-modal {
+  display: none;
+}
+
+// **********
+// All Modals
+// **********
+
+// Show All Styles For This Modal
+.winner-modal,
+.loser-modal {
+  background-color: rgba(0, 0, 0, 0.856);
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+  display: none;
+
+  .modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+
+    .modal-content {
+      position: relative;
+      font-size: 7rem;
+
+      .modal-results {
+        color: white;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,224 @@
+@use "variables";
+
+.game-main-top-right {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+
+  .dice {
+    align-items: center;
+    display: grid;
+    grid-gap: 7rem;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    grid-template-rows: auto;
+    justify-items: center;
+    padding: 2rem;
+    perspective: 1000px;
+    display: flex;
+    gap: 9rem;
+
+    .die-list-1,
+    .die-list-2 {
+      height: 6rem;
+      list-style-type: none;
+      position: relative;
+      transform-style: preserve-3d;
+      width: 6rem;
+
+      .die-item {
+        box-sizing: content-box;
+        background-color: variables.$color-white;
+        box-shadow: inset -0.35rem 0.35rem 0.75rem rgba(0, 0, 0, 0.226),
+          inset 0.5rem -0.25rem 0.5rem rgba(0, 0, 0, 0.185);
+        display: grid;
+        grid-template-areas: "one two three" "four five six" "seven eight nine";
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        height: 100%;
+        padding: 1rem;
+        position: absolute;
+        width: 100%;
+        border-radius: 5px;
+
+        .dot {
+          align-self: center;
+          background-color: variables.$color-light-red;
+          border-radius: 50%;
+          box-shadow: inset -0.15rem 0.15rem 0.25rem rgba(0, 0, 0, 0.5);
+          display: block;
+          height: 1.25rem;
+          justify-self: center;
+          width: 1.25rem;
+        }
+      }
+    }
+  }
+
+  // Dice Even Transition
+
+  .die-roll-1 {
+    transition: transform 1.25s ease-in-out;
+  }
+
+  // Dice die Transition
+
+  .die-roll-2 {
+    transition: transform 1.25s ease-in-out;
+  }
+}
+
+// Dice Even Numbers
+
+.die-roll-1[data-roll="1"] {
+  transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg);
+}
+.die-roll-1[data-roll="2"] {
+  transform: rotateX(450deg) rotateY(720deg) rotateZ(360deg);
+}
+.die-roll-1[data-roll="3"] {
+  transform: rotateX(360deg) rotateY(630deg) rotateZ(360deg);
+}
+.die-roll-1[data-roll="4"] {
+  transform: rotateX(360deg) rotateY(810deg) rotateZ(360deg);
+}
+.die-roll-1[data-roll="5"] {
+  transform: rotateX(270deg) rotateY(720deg) rotateZ(360deg);
+}
+.die-roll-1[data-roll="6"] {
+  transform: rotateX(360deg) rotateY(900deg) rotateZ(360deg);
+}
+
+// Dice die Numb-2ers
+
+.die-roll-2[data-roll="1"] {
+  transform: rotateX(-360deg) rotateY(-720deg) rotateZ(-360deg);
+}
+.die-roll-2[data-roll="2"] {
+  transform: rotateX(-270deg) rotateY(-720deg) rotateZ(-360deg);
+}
+.die-roll-2[data-roll="3"] {
+  transform: rotateX(-360deg) rotateY(-810deg) rotateZ(-360deg);
+}
+.die-roll-2[data-roll="4"] {
+  transform: rotateX(-360deg) rotateY(-630deg) rotateZ(-360deg);
+}
+.die-roll-2[data-roll="5"] {
+  transform: rotateX(-450deg) rotateY(-720deg) rotateZ(-360deg);
+}
+.die-roll-2[data-roll="6"] {
+  transform: rotateX(-360deg) rotateY(-900deg) rotateZ(-360deg);
+}
+
+// Data Side 1-6
+
+[data-side="1"] {
+  transform: rotate3d(0, 0, 0, 90deg) translateZ(4rem);
+}
+[data-side="2"] {
+  transform: rotate3d(-1, 0, 0, 90deg) translateZ(4rem);
+}
+[data-side="3"] {
+  transform: rotate3d(0, 1, 0, 90deg) translateZ(4rem);
+}
+[data-side="4"] {
+  transform: rotate3d(0, -1, 0, 90deg) translateZ(4rem);
+}
+[data-side="5"] {
+  transform: rotate3d(1, 0, 0, 90deg) translateZ(4rem);
+}
+[data-side="6"] {
+  transform: rotate3d(1, 0, 0, 180deg) translateZ(4rem);
+}
+
+// Data Side Grid For Dots *("i".see, grid-template-areas)
+
+// 1 dot
+[data-side="1"] .dot:nth-of-type(1) {
+  grid-area: five; // Middle Box
+}
+
+// 2 dot
+[data-side="2"] .dot:nth-of-type(1) {
+  grid-area: one; // First Box
+}
+[data-side="2"] .dot:nth-of-type(2) {
+  grid-area: nine; // Last Box
+}
+
+// 3 dot
+[data-side="3"] .dot:nth-of-type(1) {
+  grid-area: one; // First Box
+}
+[data-side="3"] .dot:nth-of-type(2) {
+  grid-area: five; // Middle Box
+}
+[data-side="3"] .dot:nth-of-type(3) {
+  grid-area: nine; // Last Box
+}
+
+// 4 dot
+[data-side="4"] .dot:nth-of-type(1) {
+  grid-area: one; // First Box
+}
+[data-side="4"] .dot:nth-of-type(2) {
+  grid-area: three; // First-Last
+}
+[data-side="4"] .dot:nth-of-type(3) {
+  grid-area: seven; // First-Last Box
+}
+[data-side="4"] .dot:nth-of-type(4) {
+  grid-area: nine; // Last Box
+}
+
+// 5 dot
+[data-side="5"] .dot:nth-of-type(1) {
+  grid-area: one; // First Box
+}
+[data-side="5"] .dot:nth-of-type(2) {
+  grid-area: three; // First-Last Box
+}
+[data-side="5"] .dot:nth-of-type(3) {
+  grid-area: five; // Middle Box
+}
+[data-side="5"] .dot:nth-of-type(4) {
+  grid-area: seven; // First-Last Box
+}
+[data-side="5"] .dot:nth-of-type(5) {
+  grid-area: nine; // Last Box
+}
+
+// 6 dot
+[data-side="6"] .dot:nth-of-type(1) {
+  grid-area: one; // First Box
+}
+[data-side="6"] .dot:nth-of-type(2) {
+  grid-area: three; // First-Last Box
+}
+[data-side="6"] .dot:nth-of-type(3) {
+  grid-area: four; // First-Middle Box
+}
+[data-side="6"] .dot:nth-of-type(4) {
+  grid-area: six; // Middle-Last Box
+}
+[data-side="6"] .dot:nth-of-type(5) {
+  grid-area: seven; // Last-First Box
+}
+[data-side="6"] .dot:nth-of-type(6) {
+  grid-area: nine; // Last Box
+}
+
+button {
+  text-align: center;
+  align-self: center;
+  background-color: variables.$color-white;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  justify-self: center;
+  padding: 0.5rem 1rem;
+}
+button:hover {
+  cursor: pointer;
+}

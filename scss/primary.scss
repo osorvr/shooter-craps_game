@@ -1,0 +1,532 @@
+@use "other/variables";
+@use "other/dice-code";
+@use "other/modals";
+
+// Universal Reset
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+// =====================================================
+// Index.html
+// =====================================================
+
+.index-body {
+  @include variables.bodyBackground();
+  @include variables.flexRow();
+
+  .index-main {
+    text-align: center;
+    @include variables.flexColumn();
+    gap: 2.5rem;
+
+    img {
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .home-btns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: row wrap;
+      gap: 1.5rem;
+
+      .btn-one {
+        @include variables.btnOne();
+      }
+
+      .btn-two {
+        @include variables.btnTwo();
+      }
+    }
+  }
+}
+
+// =====================================================
+// Credentials.html
+// =====================================================
+
+.credentials-body {
+  @include variables.bodyBackground();
+  @include variables.flexRow();
+
+  .credentials-main {
+    @include variables.flexColumn();
+    gap: 5rem;
+
+    section {
+      @include variables.flexRow();
+      gap: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+
+      .avatar-box {
+        border: 2px solid variables.$color-white;
+        padding: 5px;
+        background-color: variables.$color-light-black;
+        font-size: 5rem;
+        cursor: pointer;
+        width: 100%;
+        @include variables.flexRow();
+        border-radius: 5px;
+
+        &.active {
+          border: 2px solid variables.$color-light-red;
+          cursor: pointer;
+          padding: 5px;
+          margin: -5px;
+        }
+      }
+    }
+
+    .username-box {
+      @include variables.flexColumn();
+      gap: 1.5rem;
+
+      .credentials-input {
+        background-color: variables.$color-very-light-black;
+        border-radius: 5px;
+        color: variables.$color-light-grey;
+        border-style: none;
+        font-size: 1.5rem;
+        padding: 5px 15px;
+        outline-color: variables.$color-light-red;
+        outline: thin solid variables.$color-light-black;
+
+        &:focus {
+          color: variables.$color-light-red;
+        }
+      }
+
+      .btn-one {
+        @include variables.btnOne();
+      }
+    }
+  }
+}
+
+// =====================================================
+// Game.html
+// =====================================================
+
+.game-body {
+  @include variables.bodyBackground();
+
+  // Game Header
+  .game-header {
+    min-height: 10vh;
+    padding: 10px 0;
+    background-color: variables.$color-light-black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 2px solid variables.$color-white;
+
+    .game-header-nav {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      // Nav Variable
+      img {
+        width: 100%;
+        max-width: 175px;
+      }
+
+      // Nav Nesting
+      .game-header-nav-item-1 {
+        @include variables.flexRow();
+        justify-content: flex-start;
+      }
+
+      .game-header-nav-item-2 {
+        @include variables.flexRow();
+      }
+
+      .game-header-nav-item-3 {
+        @include variables.flexRow();
+        justify-content: flex-end;
+        gap: 1.5rem;
+        cursor: pointer;
+        list-style-type: none;
+
+        .options-sub-menu {
+          display: none;
+        }
+
+        .bxs-up-arrow {
+          display: none;
+        }
+
+        .options-menu {
+          position: relative;
+
+          .options-span {
+            display: block;
+          }
+
+          &:hover {
+            .bxs-down-arrow {
+              display: none;
+            }
+
+            .bxs-up-arrow {
+              display: inline-block;
+            }
+
+            .options-sub-menu {
+              display: block;
+              border: 1px solid;
+              width: 150px;
+              text-align: end;
+              list-style-type: none;
+              background-color: variables.$color-light-black;
+              padding: 15px;
+              position: absolute;
+              top: 50px;
+              right: 0%;
+              color: variables.$color-white;
+              font-family: "Amateur Naked";
+              border-radius: 5px;
+
+              li {
+                padding: 5px 0;
+
+                &:hover {
+                  color: variables.$color-light-red;
+                }
+
+                a {
+                  color: variables.$color-white;
+                  text-decoration: none;
+
+                  &:hover {
+                    color: variables.$color-light-red;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Game Main Top
+  .game-main-top {
+    min-height: 65vh;
+    @include variables.flexRow();
+    justify-content: space-between;
+
+    // Game Records, Roll Board, Betting Board
+    .game-main-top-left {
+      background-color: variables.$color-light-black;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 5px;
+      padding: 25px 0;
+      flex-basis: 50%;
+
+      h3 {
+        padding: 0 0 25px;
+      }
+
+      .game-records {
+        @include variables.flexRow();
+        justify-content: space-evenly;
+      }
+
+      .game-roll-board {
+        @include variables.flexColumn();
+        min-height: 225px;
+
+        .game-score-board {
+          border: 1px solid white;
+          border-radius: 5px;
+          @include variables.flexRow();
+          gap: 1.5rem;
+          width: 350px;
+          padding: 15px;
+        }
+      }
+
+      .game-betting-board {
+        @include variables.flexRow();
+        justify-content: space-evenly;
+
+        .range {
+          width: 100%;
+          height: 15px;
+          -webkit-appearance: none;
+          background: white;
+          outline: none;
+          border-radius: 15px;
+          overflow: hidden;
+        }
+        .range::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          background: variables.$color-light-black;
+          cursor: pointer;
+          border: 4px solid variables.$color-light-red;
+          box-shadow: -407px 0 0 400px variables.$color-light-red;
+        }
+
+        p {
+          text-align: start;
+
+          .bet-range {
+            color: variables.$color-white;
+            font-weight: 400;
+          }
+        }
+
+        .game-betting-board-right {
+          @include variables.flexColumn();
+          gap: 1.5rem;
+
+          .make-bet {
+            @include variables.btnOne();
+          }
+
+          .bet-locked {
+            display: none;
+          }
+        }
+      }
+    }
+
+    // Dices
+    .game-main-top-right {
+      .free-roll {
+        @include variables.btnTwo();
+      }
+
+      #diceRollOne {
+        display: none;
+      }
+
+      #diceRollTwo {
+        display: none;
+      }
+    }
+  }
+
+  // Game Main Bottom
+  .game-main-bottom {
+    min-height: 20vh;
+    @include variables.flexRow();
+    align-content: flex-start;
+
+    .game-main-bottom-description-box {
+      border-bottom: 2px solid variables.$color-white;
+      @include variables.flexRow();
+      background-color: variables.$color-light-black;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      min-height: 125px;
+      border-radius: 5px;
+      color: variables.$color-white;
+      text-align: center;
+    }
+  }
+
+  // Footer
+  .game-footer {
+    @include variables.flexRow();
+  }
+}
+
+// =====================================================
+// HowToPlay.html
+// =====================================================
+
+.howtoplay-body {
+  @include variables.bodyBackground();
+  @include variables.flexRow();
+
+  .howtoplay-main {
+    @include variables.flexColumn();
+    gap: 2.5rem;
+
+    img {
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    span {
+      color: variables.$color-white;
+    }
+
+    div {
+      width: 100%;
+      text-align: end;
+    }
+
+    section {
+      @include variables.flexColumn();
+      align-items: flex-start;
+      gap: 1rem;
+      background-color: variables.$color-light-black;
+      border-bottom: 2px solid variables.$color-white;
+      border-radius: 5px;
+      padding: 25px;
+    }
+
+    ol {
+      width: 100%;
+      @include variables.flexRow();
+      gap: 1.5rem;
+
+      li {
+        @include variables.flexColumn();
+        background-color: variables.$color-light-black;
+        gap: 1rem;
+        padding: 15px;
+        border-bottom: 2px solid variables.$color-white;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+// ***********
+// Page Loader
+// ***********
+
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: variables.$color-light-black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .lds-grid {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+
+    div {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: variables.$color-white;
+      animation: lds-grid 1.2s linear infinite;
+
+      &:nth-child(1) {
+        top: 8px;
+        left: 8px;
+        animation-delay: 0s;
+      }
+
+      &:nth-child(2) {
+        top: 8px;
+        left: 32px;
+        animation-delay: -0.4s;
+      }
+
+      &:nth-child(3) {
+        top: 8px;
+        left: 56px;
+        animation-delay: -0.8s;
+      }
+
+      &:nth-child(4) {
+        top: 32px;
+        left: 8px;
+        animation-delay: -0.4s;
+      }
+
+      &:nth-child(5) {
+        top: 32px;
+        left: 32px;
+        animation-delay: -0.8s;
+      }
+
+      &:nth-child(6) {
+        top: 32px;
+        left: 56px;
+        animation-delay: -1.2s;
+      }
+
+      &:nth-child(7) {
+        top: 56px;
+        left: 8px;
+        animation-delay: -0.8s;
+      }
+
+      &:nth-child(8) {
+        top: 56px;
+        left: 32px;
+        animation-delay: -1.2s;
+      }
+
+      &:nth-child(9) {
+        top: 56px;
+        left: 56px;
+        animation-delay: -1.6s;
+      }
+
+      @keyframes lds-grid {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          background-color: variables.$color-light-red;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+// =====================================================
+// Media Queries For Landscape
+// =====================================================
+
+@media all and (max-width: 1050px) {
+  body::before {
+    background-color: variables.$color-light-black;
+    position: absolute;
+    content: "";
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    z-index: 1000;
+  }
+
+  body:after {
+    text-align: center;
+    background-color: variables.$color-light-black;
+    position: absolute;
+    content: "Only On Desktop. App Coming Soon 📱.";
+    font-family: "Amateur Naked";
+    font-size: 2rem;
+    color: variables.$color-white;
+    top: 50%;
+    width: 90%;
+    z-index: 2000;
+  }
+
+  .index-body,
+  .credentials-body,
+  .howtoplay-body,
+  .game-body {
+    overflow: hidden;
+  }
+}
